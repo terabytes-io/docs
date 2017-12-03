@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Terabytes: Hosted ELK &#8212; Terabytes 1.0 documentation</title>
+    <title>Terabytes 1.0 documentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript">
@@ -43,10 +43,21 @@
 It is built on top of a scalable architecture with reliability in mind.</p>
 <p>It is a no-frills, cheaper alternative to pricey enterprise logging solutions,
 without compromising on your storage and log searching needs.</p>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-overview">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-getting_started">Getting started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="index.html#filebeat-docker">Filebeat Docker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#standalone-filebeat">Standalone Filebeat</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-alerting">Alerting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-elasticsearch">Elasticsearch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-kibana">Kibana</a></li>
+</ul>
 <div class="toctree-wrapper compound">
-</div>
-<div class="section" id="features">
-<h1>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h1>
+<span id="document-overview"></span><div class="section" id="overview">
+<h1>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
 <li>Alerting using ElastAlert (Slack, Pagerduty etc.)</li>
 <li>Simplified logstash configuration for known log types</li>
@@ -62,7 +73,7 @@ elasticsearch. These are multiple elasticsearch clusters in various locations wi
 <li>4-6TB HDD</li>
 </ul>
 </div>
-<div class="section" id="getting-started">
+<span id="document-getting_started"></span><div class="section" id="getting-started">
 <h1>Getting started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h1>
 <p>Write in to <a class="reference external" href="mailto:admin&#37;&#52;&#48;terabytes&#46;io">admin<span>&#64;</span>terabytes<span>&#46;</span>io</a> to request a token for your organization detailing
 your estimated numbers for</p>
@@ -118,15 +129,23 @@ used with Terabytes by adding the following under prospectors:</p>
 <p>and certificate authority as tb.crt file, which can be obtained from
 <a class="reference external" href="https://raw.githubusercontent.com/terabytes-io/filebeat/master/tb.crt">https://raw.githubusercontent.com/terabytes-io/filebeat/master/tb.crt</a></p>
 </div>
-<div class="section" id="elasticsearch-indexes">
-<h2>Elasticsearch Indexes<a class="headerlink" href="#elasticsearch-indexes" title="Permalink to this headline">¶</a></h2>
+</div>
+<span id="document-alerting"></span><div class="section" id="alerting">
+<h1>Alerting<a class="headerlink" href="#alerting" title="Permalink to this headline">¶</a></h1>
+<p>Alerting is provided using ElastAlert which you can access on the Kibana UI.</p>
+<p>For alerting reference, refer to <a class="reference external" href="https://github.com/Yelp/ElastAlert">https://github.com/Yelp/ElastAlert</a>
+and <a class="reference external" href="https://github.com/Yelp/elastalert/tree/master/example_rules">https://github.com/Yelp/elastalert/tree/master/example_rules</a></p>
+</div>
+<span id="document-elasticsearch"></span><div class="section" id="elasticsearch">
+<h1>Elasticsearch<a class="headerlink" href="#elasticsearch" title="Permalink to this headline">¶</a></h1>
 <p>Elasticsearch indexes will be created per day, based on the <code class="docutils literal"><span class="pre">type</span></code> specified
 in the filebeat fields.</p>
 <p>The index naming convention is <code class="docutils literal"><span class="pre">organization_name-log_type-YYYY-MM-DD</span></code>
 e.g. <code class="docutils literal"><span class="pre">microsoft-access_logs-2000-01-01</span></code></p>
+<p>Direct Elasticsearch access is not provided.</p>
 </div>
-<div class="section" id="kibana-indexes">
-<h2>Kibana Indexes<a class="headerlink" href="#kibana-indexes" title="Permalink to this headline">¶</a></h2>
+<span id="document-kibana"></span><div class="section" id="kibana">
+<h1>Kibana<a class="headerlink" href="#kibana" title="Permalink to this headline">¶</a></h1>
 <p>Each user in your organization can have their own kibana index for creating
 and storing their visualizations and dashboards. This kibana index is named
 <code class="docutils literal"><span class="pre">.kibana_username&#64;organization.com</span></code></p>
@@ -135,13 +154,7 @@ It is called <code class="docutils literal"><span class="pre">.kibana_organizati
 <p>You can switch between your personal vs shared index using the <code class="docutils literal"><span class="pre">Own</span> <span class="pre">Home</span></code> tab
 in Kibana UI.</p>
 </div>
-<div class="section" id="alerting">
-<h2>Alerting<a class="headerlink" href="#alerting" title="Permalink to this headline">¶</a></h2>
-<p>Alerting is provided using ElastAlert which you can access on the Kibana UI.
-For alerting reference, refer to <a class="reference external" href="https://github.com/Yelp/ElastAlert">https://github.com/Yelp/ElastAlert</a>
-and <a class="reference external" href="https://github.com/Yelp/elastalert/tree/master/example_rules">https://github.com/Yelp/elastalert/tree/master/example_rules</a></p>
-</div>
-</div>
+<span id="document-logstash"></span><span id="document-filebeat"></span></div>
 
 
           </div>
@@ -151,7 +164,7 @@ and <a class="reference external" href="https://github.com/Yelp/elastalert/tree/
         <div class="sphinxsidebarwrapper"><div class="relations">
 <h3>Related Topics</h3>
 <ul>
-  <li><a href="#">Documentation overview</a><ul>
+  <li><a href="index.html#document-index">Documentation overview</a><ul>
   </ul></li>
 </ul>
 </div>
@@ -166,9 +179,6 @@ and <a class="reference external" href="https://github.com/Yelp/elastalert/tree/
       Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.5</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
       
-      |
-      <a href="_sources/index.rst.txt"
-          rel="nofollow">Page source</a>
     </div>
 
     
