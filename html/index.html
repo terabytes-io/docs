@@ -1,0 +1,178 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Terabytes: Hosted ELK &#8212; Terabytes 1.0 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <img alt="_images/terabytes_logo.png" src="_images/terabytes_logo.png" />
+<p>Terabytes is a hosted Elasticsearch Logstash Kibana (ELK) stack.
+It is built on top of a scalable architecture with reliability in mind.</p>
+<p>It is a no-frills, cheaper alternative to pricey enterprise logging solutions,
+without compromising on your storage and log searching needs.</p>
+<div class="toctree-wrapper compound">
+</div>
+<div class="section" id="features">
+<h1>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li>Alerting using ElastAlert (Slack, Pagerduty etc.)</li>
+<li>Simplified logstash configuration for known log types</li>
+<li>Google Authentication for Kibana</li>
+<li>Shared and user-level kibana indexes</li>
+</ul>
+<p>Each organization gets a dedicated Kibana instance which sits on top of a multi-tenant
+elasticsearch. These are multiple elasticsearch clusters in various locations with replication.</p>
+<p>Each Elasticsearch machine is a bare-metal server with:</p>
+<ul class="simple">
+<li>8-12 cores</li>
+<li>48-64GB RAM</li>
+<li>4-6TB HDD</li>
+</ul>
+</div>
+<div class="section" id="getting-started">
+<h1>Getting started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h1>
+<p>Write in to <a class="reference external" href="mailto:admin&#37;&#52;&#48;terabytes&#46;io">admin<span>&#64;</span>terabytes<span>&#46;</span>io</a> to request a token for your organization detailing
+your estimated numbers for</p>
+<ul class="simple">
+<li>log lines per day</li>
+<li>log size in GB per day</li>
+<li>log types (nginx access logs etc.)</li>
+</ul>
+<p>We will provide you with a token with which you can send logs to us for free for
+30 days, with a max of 1GB of logs per day.</p>
+<p>Your kibana will be located at organization_name.terabytes.io, where you can
+log in with your organization’s google account.</p>
+<div class="section" id="filebeat-docker">
+<h2>Filebeat Docker<a class="headerlink" href="#filebeat-docker" title="Permalink to this headline">¶</a></h2>
+<p>The easiest way to get started is to use a filebeat docker container
+from <a class="reference external" href="https://github.com/terabytes-io/filebeat">https://github.com/terabytes-io/filebeat</a></p>
+<p>The docker image contains a simple configuration for collecting
+<code class="docutils literal"><span class="pre">/var/log/auth.log</span></code> and <code class="docutils literal"><span class="pre">/var/log/syslog</span></code> files:</p>
+<div class="highlight-default"><div class="highlight"><pre>docker run -d -v /var/log:/var/log/host:rw \
+--hostname $(hostname) --name terabytes \
+-e TOKEN=token terabytes/filebeat:latest
+</pre></div>
+</div>
+</div>
+<div class="section" id="standalone-filebeat">
+<h2>Standalone Filebeat<a class="headerlink" href="#standalone-filebeat" title="Permalink to this headline">¶</a></h2>
+<p>Filebeat can also be installed from the official elasticsearch website and
+used with Terabytes by adding the following under prospectors:</p>
+<div class="highlight-default"><div class="highlight"><pre><span class="n">fields</span><span class="p">:</span>
+  <span class="n">tb_codec</span><span class="p">:</span> <span class="n">line</span>
+  <span class="n">token</span><span class="p">:</span> <span class="n">TOKEN</span>
+  <span class="nb">type</span><span class="p">:</span> <span class="n">syslog</span>
+</pre></div>
+</div>
+<dl class="docutils">
+<dt>tb_codec</dt>
+<dd><p class="first">Codec of the log line.</p>
+<p><code class="docutils literal"><span class="pre">line</span></code>: a simple log line with parsing determined by the “type” field.</p>
+<p class="last"><code class="docutils literal"><span class="pre">json</span></code>: log line in JSON format</p>
+</dd>
+<dt>token</dt>
+<dd>token obtained by emailing <a class="reference external" href="mailto:admin&#37;&#52;&#48;terabytes&#46;io">admin<span>&#64;</span>terabytes<span>&#46;</span>io</a></dd>
+<dt>type</dt>
+<dd><p class="first">currently supported types are <code class="docutils literal"><span class="pre">syslog</span></code> and <code class="docutils literal"><span class="pre">access_log</span></code></p>
+<p><code class="docutils literal"><span class="pre">syslog</span></code>: parsed using logstash grok filter <code class="docutils literal"><span class="pre">syslog_message</span></code></p>
+<p class="last"><code class="docutils literal"><span class="pre">access_log</span></code>: parsed using logstash grok filter <code class="docutils literal"><span class="pre">COMBINEDAPACHELOG</span></code></p>
+</dd>
+</dl>
+<p>Filebeat Output must be specified as logstash with the following host:</p>
+<div class="highlight-default"><div class="highlight"><pre><span class="n">logstash</span><span class="o">.</span><span class="n">terabytes</span><span class="o">.</span><span class="n">io</span><span class="p">:</span><span class="mi">5000</span>
+</pre></div>
+</div>
+<p>and certificate authority as tb.crt file, which can be obtained from
+<a class="reference external" href="https://raw.githubusercontent.com/terabytes-io/filebeat/master/tb.crt">https://raw.githubusercontent.com/terabytes-io/filebeat/master/tb.crt</a></p>
+</div>
+<div class="section" id="elasticsearch-indexes">
+<h2>Elasticsearch Indexes<a class="headerlink" href="#elasticsearch-indexes" title="Permalink to this headline">¶</a></h2>
+<p>Elasticsearch indexes will be created per day, based on the <code class="docutils literal"><span class="pre">type</span></code> specified
+in the filebeat fields.</p>
+<p>The index naming convention is <code class="docutils literal"><span class="pre">organization_name-log_type-YYYY-MM-DD</span></code>
+e.g. <code class="docutils literal"><span class="pre">microsoft-access_logs-2000-01-01</span></code></p>
+</div>
+<div class="section" id="kibana-indexes">
+<h2>Kibana Indexes<a class="headerlink" href="#kibana-indexes" title="Permalink to this headline">¶</a></h2>
+<p>Each user in your organization can have their own kibana index for creating
+and storing their visualizations and dashboards. This kibana index is named
+<code class="docutils literal"><span class="pre">.kibana_username&#64;organization.com</span></code></p>
+<p>A shared kibana index is also provided which is shared across your organization.
+It is called <code class="docutils literal"><span class="pre">.kibana_organization</span></code></p>
+<p>You can switch between your personal vs shared index using the <code class="docutils literal"><span class="pre">Own</span> <span class="pre">Home</span></code> tab
+in Kibana UI.</p>
+</div>
+<div class="section" id="alerting">
+<h2>Alerting<a class="headerlink" href="#alerting" title="Permalink to this headline">¶</a></h2>
+<p>Alerting is provided using ElastAlert which you can access on the Kibana UI.
+For alerting reference, refer to <a class="reference external" href="https://github.com/Yelp/ElastAlert">https://github.com/Yelp/ElastAlert</a>
+and <a class="reference external" href="https://github.com/Yelp/elastalert/tree/master/example_rules">https://github.com/Yelp/elastalert/tree/master/example_rules</a></p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="#">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, Terabytes.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.5</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="_sources/index.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
