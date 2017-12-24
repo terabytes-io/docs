@@ -1,10 +1,14 @@
 .. title:: Terabytes: Hosted ELK
 .. image:: terabytes_logo.png
 
-Terabytes is a hosted Elasticsearch Logstash Kibana (ELK) stack.
-It is built on top of a scalable architecture with reliability in mind.
+Terabytes is a hosted Elasticsearch Logstash Kibana (ELK) stack, 
+built with performance and reliability in mind.
 
-It is a no-frills, cheaper alternative to pricey enterprise logging solutions,
+ELK stack is the most popular open-source log analysis platform.
+Terabytes provides an enterprise-grade, scalable log aggregation and 
+analysis platform without you having to worry about running an ELK stack.
+
+It is a cheaper alternative to pricey logging solutions,
 without compromising on your storage and log searching needs.
 
 .. globalindex::
@@ -15,9 +19,11 @@ without compromising on your storage and log searching needs.
    :caption: Contents:
 
    overview
+   features
+   architecture
    getting_started
-   alerting
+   beats
+   logstash
    elasticsearch
    kibana
-   logstash
-   filebeat
+   alerting
