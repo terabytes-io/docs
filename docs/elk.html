@@ -1,0 +1,124 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Terabytes ELK &#8212; Terabytes 1.0 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Alerting" href="alerting.html" />
+    <link rel="prev" title="Getting started" href="getting_started.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="terabytes-elk">
+<h1>Terabytes ELK<a class="headerlink" href="#terabytes-elk" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="elasticsearch">
+<h2>Elasticsearch<a class="headerlink" href="#elasticsearch" title="Permalink to this headline">¶</a></h2>
+<p>Elasticsearch indexes follow the following conventions:</p>
+<ul class="simple">
+<li>The <code class="docutils literal"><span class="pre">type</span></code> field is used to determine the suffix of your Elasticsearch Index. e.g. logs of type <code class="docutils literal"><span class="pre">python</span></code> will be <code class="docutils literal"><span class="pre">company_name-python-*</span></code> indices.</li>
+<li>Indices are either deleted or archived to cold storage based on your pricing plan. Please refer to <a class="reference external" href="http://terabytes.io/pricing">http://terabytes.io/pricing</a> for Plans.</li>
+</ul>
+<p>Direct Elasticsearch access is provided upon request.</p>
+</div>
+<div class="section" id="logstash">
+<h2>Logstash<a class="headerlink" href="#logstash" title="Permalink to this headline">¶</a></h2>
+<p>Terabytes ingests logs using Logstash Beats and TCP input plugins.</p>
+<p>If you use any of the beats (Filebeat, Metricbeat or Packetbeat)
+point your beats output to <code class="docutils literal"><span class="pre">logstash.terabytes.io:5000</span></code></p>
+<p>If you prefer sending logs over TCP (e.g. if using Logspout)
+you can point your logs output to <code class="docutils literal"><span class="pre">logstash.terabytes.io:5001</span></code></p>
+</div>
+<div class="section" id="kibana">
+<h2>Kibana<a class="headerlink" href="#kibana" title="Permalink to this headline">¶</a></h2>
+<p>Each user in your organization can have their own kibana index for creating
+and storing their visualizations and dashboards. This kibana index is named
+<code class="docutils literal"><span class="pre">.kibana_username&#64;organization.com</span></code></p>
+<p>A shared kibana index is also provided which is shared across your organization.
+It is called <code class="docutils literal"><span class="pre">.kibana_organization</span></code></p>
+<p>You can switch between your personal vs shared index using the <code class="docutils literal"><span class="pre">Own</span> <span class="pre">Home</span></code> tab
+in Kibana UI.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h3><a href="index.html">Table Of Contents</a></h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Terabytes Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="features.html">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="architecture.html">Architecture Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting started</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Terabytes ELK</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#elasticsearch">Elasticsearch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#logstash">Logstash</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#kibana">Kibana</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="alerting.html">Alerting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="integrations/integrations.html">Integrations</a></li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="getting_started.html" title="previous chapter">Getting started</a></li>
+      <li>Next: <a href="alerting.html" title="next chapter">Alerting</a></li>
+  </ul></li>
+</ul>
+</div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, Terabytes.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.5</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="_sources/elk.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Terabytes 1.0 documentation</title>
+    <title>Terabytes: Hosted ELK &#8212; Terabytes 1.0 documentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript">
@@ -23,6 +23,7 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Terabytes Overview" href="overview.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
@@ -44,193 +45,34 @@ built with performance and reliability in mind.</p>
 <p>ELK stack is the most popular open-source log analysis platform.
 Terabytes provides an enterprise-grade, scalable log aggregation and
 analysis platform without you having to worry about running an ELK stack.</p>
-<p>It is a cheaper alternative to pricey logging solutions,
-without compromising on your storage and log searching needs.</p>
-<p class="caption"><span class="caption-text">Contents:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="index.html#document-overview">Terabytes Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="index.html#document-features">Features</a></li>
-<li class="toctree-l1"><a class="reference internal" href="index.html#upcoming-features">Upcoming Features</a></li>
-<li class="toctree-l1"><a class="reference internal" href="index.html#document-architecture">Architecture Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="index.html#document-getting_started">Getting started</a></li>
-<li class="toctree-l1"><a class="reference internal" href="index.html#document-beats">Beats</a></li>
-<li class="toctree-l1"><a class="reference internal" href="index.html#filebeat-docker">Filebeat Docker</a></li>
-<li class="toctree-l1"><a class="reference internal" href="index.html#document-logstash">Logstash</a></li>
-<li class="toctree-l1"><a class="reference internal" href="index.html#document-elasticsearch">Elasticsearch</a></li>
-<li class="toctree-l1"><a class="reference internal" href="index.html#document-kibana">Kibana</a></li>
-<li class="toctree-l1"><a class="reference internal" href="index.html#document-alerting">Alerting</a></li>
-</ul>
+<p>Additionally, Terabytes is competitively priced.</p>
 <div class="toctree-wrapper compound">
-<span id="document-overview"></span><div class="section" id="terabytes-overview">
-<h1>Terabytes Overview<a class="headerlink" href="#terabytes-overview" title="Permalink to this headline">¶</a></h1>
-<p>Terabytes was born out of the need to manage terabytes of logs
-for lean engineering startups and businesses.</p>
-<p>Examples of such logs include:</p>
-<ul class="simple">
-<li>Access Logs from Apache, Nginx, HAProxy etc.</li>
-<li>Application Logs from Rails, Golang, etc.</li>
-<li>Client side Logs from Android/iOS apps, Javascript instrumentation.</li>
-<li>Client side network performance Logs</li>
-<li>AWS Cloud Trail for all AWS audit logging</li>
-<li>AWS S3 access logs</li>
-<li>Azure performance logs</li>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Terabytes Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="features.html">Features</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="features.html#beta-features">Beta Features</a></li>
 </ul>
-<p>Deploying your own ELK cluster is fairly easy for smaller workloads.
-Maintaing a cluster while ensuring reliability, security and scalability is
-hard unless you have a dedicated DevOps Engineer running the logging system.</p>
-<p>Terabytes runs a large ELK cluster which solves 2 major problems for your
-DevOps team:</p>
-<ul class="simple">
-<li>Minimal configuration and maintenance overhead</li>
-<li>Extensible logging platform with zero lock-in</li>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="architecture.html">Architecture Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#filebeat-docker">Filebeat Docker</a></li>
 </ul>
-<p>Terabytes aims to provide multiple storage and analytics backends for logs,
-apart from Elasticsearch such as Hadoop for MapReduce or Presto for SQL queries.</p>
-</div>
-<span id="document-features"></span><div class="section" id="features">
-<h1>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h1>
-<ul class="simple">
-<li>Reliable and Secure ELK stack</li>
-<li>Ingest large number of log types with minimal configuration</li>
-<li>Alerting to PagerDuty, Slack, Hipchat, Email etc.</li>
-<li>Minimum 90-day retention with any pricing plan</li>
-<li>7-day Kafka retention for re-processing</li>
-<li>Multi-user and Google Auth Kibana Dashboards</li>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="elk.html">Terabytes ELK</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="elk.html#elasticsearch">Elasticsearch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="elk.html#logstash">Logstash</a></li>
+<li class="toctree-l2"><a class="reference internal" href="elk.html#kibana">Kibana</a></li>
 </ul>
-</div>
-<div class="section" id="upcoming-features">
-<h1>Upcoming Features<a class="headerlink" href="#upcoming-features" title="Permalink to this headline">¶</a></h1>
-<ul class="simple">
-<li>Scheduled S3 backup to your buckets</li>
-<li>Export logs to Hadoop</li>
-<li>Consume logs via Kafka Stream</li>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="alerting.html">Alerting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="integrations/integrations.html">Integrations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="integrations/beats.html">Beats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="integrations/beats.html#quickstart">Quickstart</a></li>
+<li class="toctree-l2"><a class="reference internal" href="integrations/access_logs.html">Access Logs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="integrations/distributed_tracing.html">Distributed Tracing</a></li>
 </ul>
-</div>
-<span id="document-architecture"></span><div class="section" id="architecture-overview">
-<h1>Architecture Overview<a class="headerlink" href="#architecture-overview" title="Permalink to this headline">¶</a></h1>
-<p>Each log-line is sent from your server using an open source
-agent with a security token.</p>
-<p>Logs are authenticated by Terabytes and queued in a Kafka Stream
-before being processed and ingested into Elasticsearch.</p>
-<p>Kafka with 7-day retention ensures that none of the logs are
-lost and can be reprocessed if required.</p>
-<p>There are 2 geographically distributed Elasticsearch
-clusters, hosted with different providers.
-Logs are ingested into both clusters at the same time. This
-ensures that we can quickly failover from one cluster to another
-in the event of any failure.</p>
-<p>Each Elasticsearch machine is a bare-metal server with:</p>
-<ul class="simple">
-<li>8-12 cores</li>
-<li>32-64GB RAM</li>
-<li>4-6TB HDD</li>
+</li>
 </ul>
-</div>
-<span id="document-getting_started"></span><div class="section" id="getting-started">
-<h1>Getting started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h1>
-<p>Write in to <a class="reference external" href="mailto:admin&#37;&#52;&#48;terabytes&#46;io">admin<span>&#64;</span>terabytes<span>&#46;</span>io</a> to request a token for your organization detailing
-your estimated numbers for</p>
-<ul class="simple">
-<li>log lines per day</li>
-<li>log size in GB per day</li>
-<li>log types (nginx access logs etc.)</li>
-</ul>
-<p>We will provide you with a token with which you can send logs to us for free for
-30 days, with a max of 1GB of logs per day.</p>
-<p>Your kibana will be located at organization_name.terabytes.io, where you can
-log in with your organization’s google account.</p>
-</div>
-<span id="document-beats"></span><div class="section" id="beats">
-<h1>Beats<a class="headerlink" href="#beats" title="Permalink to this headline">¶</a></h1>
-<p>Beats are lightweight agents developed by Elastic that ship logs from your
-servers to Terabytes.</p>
-<ul class="simple">
-<li>Filebeat: Log files</li>
-<li>Metricbeat: Metrics</li>
-<li>Packetbeat: Network data/metrics</li>
-</ul>
-<p>Any of the Beats <a class="reference external" href="https://www.elastic.co/products/beats">https://www.elastic.co/products/beats</a>
-can be installed from the official elasticsearch website and
-used with Terabytes as long as they contain the following additional fields:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="n">fields</span><span class="p">:</span>
-  <span class="n">token</span><span class="p">:</span> <span class="n">TOKEN</span>
-</pre></div>
-</div>
-<dl class="docutils">
-<dt>token</dt>
-<dd>a secret Terabytes token that needs to accompany each log line from your servers.
-You can obtain one when you setup your account by emailing <a class="reference external" href="mailto:admin&#37;&#52;&#48;terabytes&#46;io">admin<span>&#64;</span>terabytes<span>&#46;</span>io</a></dd>
-</dl>
-<p>To set these fields, follow the official documentation:</p>
-<ul class="simple">
-<li>Filebeat: <a class="reference external" href="https://www.elastic.co/guide/en/beats/filebeat/current/configuration-filebeat-options.html#configuration-fields">https://www.elastic.co/guide/en/beats/filebeat/current/configuration-filebeat-options.html#configuration-fields</a></li>
-<li>Metricbeat: <a class="reference external" href="https://www.elastic.co/guide/en/beats/metricbeat/current/configuration-general-options.html#libbeat-configuration-fields">https://www.elastic.co/guide/en/beats/metricbeat/current/configuration-general-options.html#libbeat-configuration-fields</a></li>
-</ul>
-<p>Note: ensure that <code class="docutils literal"><span class="pre">fields_under_root</span></code> is set to <code class="docutils literal"><span class="pre">true</span></code></p>
-<p>Beat output must be specified as logstash with the following host:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="n">logstash</span><span class="o">.</span><span class="n">terabytes</span><span class="o">.</span><span class="n">io</span><span class="p">:</span><span class="mi">5000</span>
-</pre></div>
-</div>
-<p>and certificate authority as tb.crt file, which can be obtained from
-<a class="reference external" href="https://raw.githubusercontent.com/terabytes-io/filebeat/master/tb.crt">https://raw.githubusercontent.com/terabytes-io/filebeat/master/tb.crt</a></p>
-<p>Additionally, for Filebeat, please ensure that the following fields are also set:</p>
-<dl class="docutils">
-<dt>tb_codec (required for Filebeat)</dt>
-<dd><p class="first">Codec of the log line.</p>
-<p><code class="docutils literal"><span class="pre">line</span></code>: a simple log line with parsing determined by the “type” field.</p>
-<p class="last"><code class="docutils literal"><span class="pre">json</span></code>: log line in JSON format</p>
-</dd>
-<dt>type (required for Filebeat)</dt>
-<dd><p class="first">currently supported types are <code class="docutils literal"><span class="pre">syslog</span></code> and <code class="docutils literal"><span class="pre">access_log</span></code> for Filebeat</p>
-<p><code class="docutils literal"><span class="pre">syslog</span></code>: parsed using logstash grok filter <code class="docutils literal"><span class="pre">syslog_message</span></code></p>
-<p class="last"><code class="docutils literal"><span class="pre">access_log</span></code>: parsed using logstash grok filter <code class="docutils literal"><span class="pre">COMBINEDAPACHELOG</span></code></p>
-</dd>
-</dl>
-</div>
-<div class="section" id="filebeat-docker">
-<h1>Filebeat Docker<a class="headerlink" href="#filebeat-docker" title="Permalink to this headline">¶</a></h1>
-<p>One of the easiest way to get started is to use a filebeat docker container
-from <a class="reference external" href="https://github.com/terabytes-io/filebeat">https://github.com/terabytes-io/filebeat</a></p>
-<p>The docker image contains a simple configuration for collecting
-<code class="docutils literal"><span class="pre">/var/log/auth.log</span></code> and <code class="docutils literal"><span class="pre">/var/log/syslog</span></code> files:</p>
-<div class="highlight-default"><div class="highlight"><pre>docker run -d -v /var/log:/var/log/host:rw \
---hostname $(hostname) --name terabytes \
--e TOKEN=token terabytes/filebeat:latest
-</pre></div>
-</div>
-</div>
-<span id="document-logstash"></span><div class="section" id="logstash">
-<h1>Logstash<a class="headerlink" href="#logstash" title="Permalink to this headline">¶</a></h1>
-<p>Terabytes ingests logs using Logstash Beats and TCP input plugins.</p>
-<p>If you use any of the beats (Filebeat, Metricbeat or Packetbeat)
-point your beats output to <code class="docutils literal"><span class="pre">logstash.terabytes.io:5000</span></code></p>
-<p>If you prefer sending logs over TCP (e.g. if using Logspout)
-you can point your logs output to <code class="docutils literal"><span class="pre">logstash.terabytes.io:5001</span></code></p>
-</div>
-<span id="document-elasticsearch"></span><div class="section" id="elasticsearch">
-<h1>Elasticsearch<a class="headerlink" href="#elasticsearch" title="Permalink to this headline">¶</a></h1>
-<p>Elasticsearch indexes will be created per day, based on the <code class="docutils literal"><span class="pre">type</span></code> field
-specified in your logs.</p>
-<p>The index naming convention is <code class="docutils literal"><span class="pre">organization_name-log_type-YYYY-MM-DD</span></code>
-e.g. <code class="docutils literal"><span class="pre">microsoft-access_logs-2000-01-01</span></code></p>
-<p>Direct Elasticsearch access is not provided.</p>
-</div>
-<span id="document-kibana"></span><div class="section" id="kibana">
-<h1>Kibana<a class="headerlink" href="#kibana" title="Permalink to this headline">¶</a></h1>
-<p>Each user in your organization can have their own kibana index for creating
-and storing their visualizations and dashboards. This kibana index is named
-<code class="docutils literal"><span class="pre">.kibana_username&#64;organization.com</span></code></p>
-<p>A shared kibana index is also provided which is shared across your organization.
-It is called <code class="docutils literal"><span class="pre">.kibana_organization</span></code></p>
-<p>You can switch between your personal vs shared index using the <code class="docutils literal"><span class="pre">Own</span> <span class="pre">Home</span></code> tab
-in Kibana UI.</p>
-</div>
-<span id="document-alerting"></span><div class="section" id="alerting">
-<h1>Alerting<a class="headerlink" href="#alerting" title="Permalink to this headline">¶</a></h1>
-<p>Alerting is provided using ElastAlert which you can access on the Kibana UI.</p>
-<p>For alerting reference, refer to <a class="reference external" href="https://github.com/Yelp/ElastAlert">https://github.com/Yelp/ElastAlert</a>
-and <a class="reference external" href="https://github.com/Yelp/elastalert/tree/master/example_rules">https://github.com/Yelp/elastalert/tree/master/example_rules</a></p>
-</div>
 </div>
 
 
@@ -238,10 +80,22 @@ and <a class="reference external" href="https://github.com/Yelp/elastalert/tree/
         </div>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper"><div class="relations">
+        <div class="sphinxsidebarwrapper">
+<h3><a href="#">Table Of Contents</a></h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Terabytes Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="features.html">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="architecture.html">Architecture Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="elk.html">Terabytes ELK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="alerting.html">Alerting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="integrations/integrations.html">Integrations</a></li>
+</ul>
+<div class="relations">
 <h3>Related Topics</h3>
 <ul>
-  <li><a href="index.html#document-index">Documentation overview</a><ul>
+  <li><a href="#">Documentation overview</a><ul>
+      <li>Next: <a href="overview.html" title="next chapter">Terabytes Overview</a></li>
   </ul></li>
 </ul>
 </div>
@@ -256,6 +110,9 @@ and <a class="reference external" href="https://github.com/Yelp/elastalert/tree/
       Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.5</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
       
+      |
+      <a href="_sources/index.rst.txt"
+          rel="nofollow">Page source</a>
     </div>
 
     

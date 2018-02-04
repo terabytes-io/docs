@@ -50,9 +50,8 @@ type (required for Filebeat)
 
     ``access_log``: parsed using logstash grok filter ``COMBINEDAPACHELOG``
 
-
-Filebeat Docker
----------------
+Quickstart
+----------
 
 One of the easiest way to get started is to use a filebeat docker container
 from https://github.com/terabytes-io/filebeat
