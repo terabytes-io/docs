@@ -8,7 +8,7 @@ ELK stack is the most popular open-source log analysis platform.
 Terabytes provides an enterprise-grade, scalable log aggregation and 
 analysis platform without you having to worry about running an ELK stack.
 
-Additionally, Terabytes is competitively priced.
+Terabytes is competitively priced.
 
 .. globalindex::
    :maxdepth: 3

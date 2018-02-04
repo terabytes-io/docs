@@ -19,4 +19,4 @@ help:
 %: Makefile
 	rm -rf $@ docs
 	@$(SPHINXBUILD) -M $@ "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
-	mv $@ docs
+	mv $@ docs && echo "docs.terabytes.io" > docs/CNAME
