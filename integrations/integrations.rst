@@ -23,6 +23,7 @@ application logs, system logs etc.)
    :caption: Integrations:
 
    beats
-   access_logs
    distributed_tracing
+   access_logs
+   application_logs
 

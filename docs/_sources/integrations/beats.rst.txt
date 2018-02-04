@@ -1,3 +1,5 @@
+.. _beats:
+
 Beats
 -----
 
@@ -50,11 +52,10 @@ type (required for Filebeat)
 
     ``access_log``: parsed using logstash grok filter ``COMBINEDAPACHELOG``
 
-Quickstart
-----------
+Filebeat
+^^^^^^^^
 
-One of the easiest way to get started is to use a filebeat docker container
-from https://github.com/terabytes-io/filebeat
+Terabytes proveides a filebeat docker container at https://github.com/terabytes-io/filebeat
 
 The docker image contains a simple configuration for collecting
 ``/var/log/auth.log`` and ``/var/log/syslog`` files::
@@ -63,3 +64,12 @@ The docker image contains a simple configuration for collecting
     --hostname $(hostname) --name terabytes \
     -e TOKEN=token terabytes/filebeat:latest
 
+Metricbeat
+^^^^^^^^^^
+
+You can setup metricbeat on your host machines using the APT/YUM repositories from Elastic
+https://www.elastic.co/guide/en/beats/metricbeat/current/setup-repositories.html
+
+Point your metricbeat installation to ``logstash.terabytes.io:5000``.
+Your kibana comes loaded with tons of Metribeat default dashboards for you to monitor 
+your servers as well as additional services.

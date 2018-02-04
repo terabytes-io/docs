@@ -1,0 +1,169 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Application Logs &#8212; Terabytes 1.0 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Access Logs" href="access_logs.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="application-logs">
+<h1>Application Logs<a class="headerlink" href="#application-logs" title="Permalink to this headline">¶</a></h1>
+<p>We suggest using JSON logging for all application logs.
+Additionally, you should setup <a class="reference internal" href="distributed_tracing.html"><span class="doc">Distributed Tracing</span></a> for all your
+services by logging the <code class="docutils literal"><span class="pre">X-Request-ID</span></code> header in all your logs.</p>
+<p>Refer to the <a class="reference internal" href="access_logs.html"><span class="doc">Access Logs</span></a> section for how to add the <code class="docutils literal"><span class="pre">X-Request-ID</span></code>
+to your web servers.</p>
+<div class="section" id="python">
+<h2>Python<a class="headerlink" href="#python" title="Permalink to this headline">¶</a></h2>
+<p><strong>python-json-logger</strong>
+: <a class="reference external" href="https://github.com/madzak/python-json-logger">https://github.com/madzak/python-json-logger</a></p>
+<p><strong>json-log-formatter</strong>
+: <a class="reference external" href="https://github.com/marselester/json-log-formatter">https://github.com/marselester/json-log-formatter</a></p>
+</div>
+<div class="section" id="django">
+<h2>Django<a class="headerlink" href="#django" title="Permalink to this headline">¶</a></h2>
+<p><strong>django-logging-json</strong>
+: <a class="reference external" href="https://github.com/cipriantarta/django-logging">https://github.com/cipriantarta/django-logging</a></p>
+</div>
+<div class="section" id="ruby">
+<h2>Ruby<a class="headerlink" href="#ruby" title="Permalink to this headline">¶</a></h2>
+<p><strong>ougai</strong>
+: <a class="reference external" href="https://github.com/tilfin/ougai">https://github.com/tilfin/ougai</a></p>
+<p><strong>logstash-logger</strong>
+: <a class="reference external" href="https://github.com/dwbutler/logstash-logger">https://github.com/dwbutler/logstash-logger</a></p>
+</div>
+<div class="section" id="rails">
+<h2>Rails<a class="headerlink" href="#rails" title="Permalink to this headline">¶</a></h2>
+<p><strong>lograge</strong>
+: <a class="reference external" href="https://github.com/roidrage/lograge">https://github.com/roidrage/lograge</a></p>
+<p><strong>logstasher</strong>
+: <a class="reference external" href="https://github.com/shadabahmed/logstasher">https://github.com/shadabahmed/logstasher</a></p>
+</div>
+<div class="section" id="golang">
+<h2>Golang<a class="headerlink" href="#golang" title="Permalink to this headline">¶</a></h2>
+<p><strong>logrus</strong>
+: <a class="reference external" href="https://github.com/sirupsen/logrus">https://github.com/sirupsen/logrus</a></p>
+<p>Use <code class="docutils literal"><span class="pre">log.SetFormatter(&amp;log.JSONFormatter{})</span></code> for JSON logging</p>
+<p><strong>zap</strong>
+: <a class="reference external" href="https://github.com/uber-go/zap">https://github.com/uber-go/zap</a></p>
+<p><strong>zerolog</strong>
+: <a class="reference external" href="https://github.com/rs/zerolog">https://github.com/rs/zerolog</a></p>
+</div>
+<div class="section" id="rust">
+<h2>Rust<a class="headerlink" href="#rust" title="Permalink to this headline">¶</a></h2>
+<p><strong>slog</strong>
+: <a class="reference external" href="https://github.com/slog-rs/slog">https://github.com/slog-rs/slog</a></p>
+<p><strong>json_logger</strong>
+: <a class="reference external" href="https://github.com/rsolomo/json_logger">https://github.com/rsolomo/json_logger</a></p>
+</div>
+<div class="section" id="java-scala">
+<h2>Java/Scala<a class="headerlink" href="#java-scala" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>If you are using log4j:</li>
+</ul>
+<p><strong>log4j-json</strong>
+: <a class="reference external" href="https://github.com/michaeltandy/log4j-json">https://github.com/michaeltandy/log4j-json</a></p>
+<ul class="simple">
+<li>If you are using java.util.logging:</li>
+</ul>
+<p><strong>logstash-util-formatter</strong>:
+: <a class="reference external" href="https://github.com/SYNAXON/logstash-util-formatter">https://github.com/SYNAXON/logstash-util-formatter</a></p>
+<ul class="simple">
+<li>If you are using logback</li>
+</ul>
+<p><strong>logback-encoder</strong>
+: <a class="reference external" href="https://github.com/logstash/logstash-logback-encoder">https://github.com/logstash/logstash-logback-encoder</a></p>
+</div>
+<div class="section" id="play-framework">
+<h2>Play Framework<a class="headerlink" href="#play-framework" title="Permalink to this headline">¶</a></h2>
+<p><strong>play-json-logger</strong>
+: <a class="reference external" href="https://github.com/hmrc/play-json-logger">https://github.com/hmrc/play-json-logger</a></p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h3><a href="../index.html">Table Of Contents</a></h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Terabytes Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features.html">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../architecture.html">Architecture Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../elk.html">Terabytes ELK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../alerting.html">Alerting</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="integrations.html">Integrations</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="beats.html">Beats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="distributed_tracing.html">Distributed Tracing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="access_logs.html">Access Logs</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Application Logs</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="integrations.html">Integrations</a><ul>
+      <li>Previous: <a href="access_logs.html" title="previous chapter">Access Logs</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, Terabytes.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.5</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="../_sources/integrations/application_logs.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

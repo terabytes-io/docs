@@ -23,7 +23,7 @@
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Access Logs" href="access_logs.html" />
+    <link rel="next" title="Distributed Tracing" href="distributed_tracing.html" />
     <link rel="prev" title="Integrations" href="integrations.html" />
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
@@ -41,7 +41,7 @@
           <div class="body" role="main">
             
   <div class="section" id="beats">
-<h1>Beats<a class="headerlink" href="#beats" title="Permalink to this headline">¶</a></h1>
+<span id="id1"></span><h1>Beats<a class="headerlink" href="#beats" title="Permalink to this headline">¶</a></h1>
 <p>Beats are lightweight agents developed by Elastic that ship logs from your
 servers to Terabytes.</p>
 <ul class="simple">
@@ -86,17 +86,24 @@ You can obtain one when you setup your account by emailing <a class="reference e
 <p class="last"><code class="docutils literal"><span class="pre">access_log</span></code>: parsed using logstash grok filter <code class="docutils literal"><span class="pre">COMBINEDAPACHELOG</span></code></p>
 </dd>
 </dl>
-</div>
-<div class="section" id="quickstart">
-<h1>Quickstart<a class="headerlink" href="#quickstart" title="Permalink to this headline">¶</a></h1>
-<p>One of the easiest way to get started is to use a filebeat docker container
-from <a class="reference external" href="https://github.com/terabytes-io/filebeat">https://github.com/terabytes-io/filebeat</a></p>
+<div class="section" id="filebeat">
+<h2>Filebeat<a class="headerlink" href="#filebeat" title="Permalink to this headline">¶</a></h2>
+<p>Terabytes proveides a filebeat docker container at <a class="reference external" href="https://github.com/terabytes-io/filebeat">https://github.com/terabytes-io/filebeat</a></p>
 <p>The docker image contains a simple configuration for collecting
 <code class="docutils literal"><span class="pre">/var/log/auth.log</span></code> and <code class="docutils literal"><span class="pre">/var/log/syslog</span></code> files:</p>
 <div class="highlight-default"><div class="highlight"><pre>docker run -d -v /var/log:/var/log/host:rw \
 --hostname $(hostname) --name terabytes \
 -e TOKEN=token terabytes/filebeat:latest
 </pre></div>
+</div>
+</div>
+<div class="section" id="metricbeat">
+<h2>Metricbeat<a class="headerlink" href="#metricbeat" title="Permalink to this headline">¶</a></h2>
+<p>You can setup metricbeat on your host machines using the APT/YUM repositories from Elastic
+<a class="reference external" href="https://www.elastic.co/guide/en/beats/metricbeat/current/setup-repositories.html">https://www.elastic.co/guide/en/beats/metricbeat/current/setup-repositories.html</a></p>
+<p>Point your metricbeat installation to <code class="docutils literal"><span class="pre">logstash.terabytes.io:5000</span></code>.
+Your kibana comes loaded with tons of Metribeat default dashboards for you to monitor
+your servers as well as additional services.</p>
 </div>
 </div>
 
@@ -116,9 +123,9 @@ from <a class="reference external" href="https://github.com/terabytes-io/filebea
 <li class="toctree-l1"><a class="reference internal" href="../alerting.html">Alerting</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="integrations.html">Integrations</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Beats</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#quickstart">Quickstart</a></li>
-<li class="toctree-l2"><a class="reference internal" href="access_logs.html">Access Logs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="distributed_tracing.html">Distributed Tracing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="access_logs.html">Access Logs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="application_logs.html">Application Logs</a></li>
 </ul>
 </li>
 </ul>
@@ -128,7 +135,7 @@ from <a class="reference external" href="https://github.com/terabytes-io/filebea
   <li><a href="../index.html">Documentation overview</a><ul>
   <li><a href="integrations.html">Integrations</a><ul>
       <li>Previous: <a href="integrations.html" title="previous chapter">Integrations</a></li>
-      <li>Next: <a href="access_logs.html" title="next chapter">Access Logs</a></li>
+      <li>Next: <a href="distributed_tracing.html" title="next chapter">Distributed Tracing</a></li>
   </ul></li>
   </ul></li>
 </ul>
