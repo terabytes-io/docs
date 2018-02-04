@@ -18,7 +18,7 @@ Python
 : https://github.com/marselester/json-log-formatter
 
 Django
-^^^^^^
+""""""
 
 **django-logging-json**
 : https://github.com/cipriantarta/django-logging
@@ -33,13 +33,21 @@ Ruby
 : https://github.com/dwbutler/logstash-logger
 
 Rails
-^^^^^
+"""""
 
 **lograge**
 : https://github.com/roidrage/lograge
 
 **logstasher**
 : https://github.com/shadabahmed/logstasher
+
+
+NodeJS
+""""""
+
+**roarr**
+: https://github.com/gajus/roarr
+
 
 Golang
 ^^^^^^
@@ -72,6 +80,9 @@ Java/Scala
 **log4j-json**
 : https://github.com/michaeltandy/log4j-json
 
+**log4j-jsonevent-layout**
+: https://github.com/logstash/log4j-jsonevent-layout
+
 * If you are using java.util.logging:
 
 **logstash-util-formatter**:
@@ -83,8 +94,10 @@ Java/Scala
 : https://github.com/logstash/logstash-logback-encoder
 
 Play Framework
-^^^^^^^^^^^^^^
+""""""""""""""
 
 **play-json-logger**
 : https://github.com/hmrc/play-json-logger
+
+
 
